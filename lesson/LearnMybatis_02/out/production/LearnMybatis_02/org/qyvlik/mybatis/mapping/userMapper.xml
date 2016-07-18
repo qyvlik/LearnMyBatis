@@ -16,4 +16,21 @@
             resultType="org.qyvlik.mybatis.entity.User">
         select * from users where id=#{id}
     </select>
+
+    <insert id="addUser" parameterType="org.qyvlik.mybatis.entity.User">
+        insert into users(name, age) values(#{name}, #{age})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from users where id=#{id}
+    </delete>
+
+    <update id="updateUser" parameterType="org.qyvlik.mybatis.entity.User">
+        update users set name=#{name}, age=#{age} where id=#{id}
+    </update>
+
+    <!-- 返回的是列表~但是只要指定序列元素类型~ -->
+    <select id="getAllUsers" resultType="org.qyvlik.mybatis.entity.User">
+        select * from users
+    </select>
 </mapper>
